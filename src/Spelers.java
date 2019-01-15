@@ -1,19 +1,27 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Spelers {
-		private Scanner reader = new Scanner(System.in);
-	
-		public int aantalSpelers() {
-			System.out.println("Met hoeveel spelers wil je spelen?");
-			return reader.nextInt();
+private ArrayList<Speler> Spelers = new ArrayList<>();
+private Random random = new Random();
+
+public void voegSpelerToe(Speler speler) {
+	Spelers.add(speler);
+	}
+
+public int gooiDobbelsteen() {
+	return random.nextInt(5)+1;
+	}
+
+public void verplaatsSpeler(Speler speler, int aantalPlekken) {
+	speler.verplaats(aantalPlekken);
+	}
+
+public void speelRonde() {
+	for (Speler speler : Spelers) {
+		verplaatsSpeler(speler, gooiDobbelsteen());
 		}
-	
-	public String[] vraagNamen(int aantal) {
-		String [] spelers = new String [aantal];
-		for(int i = 0; i<aantal; i++) {
-			System.out.println("Geef de naam van speler " + (i+1) + " :");
-			spelers[i] = reader.nextLine();
-		}
-		return spelers;
 	}
 }
+
+
