@@ -12,12 +12,9 @@ public class Brug extends SpelVak{
 //	}
 	
 	@Override
-	public int specialeActie(Speler speler) {
+	public int specialeActie(Speler speler, int worp) {
+		System.out.println(speler + " is op de brug belandt en mag 6 plekjes voorruit");
 		return 6;
 	}
 	
-	@Override
-	public void bezetVak(Speler speler, int vaknr) {
-		
-	}
 }

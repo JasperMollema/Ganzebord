@@ -5,27 +5,31 @@ public class Speler {
 	private Random random = new Random();
 	Scanner reader = new Scanner(System.in);
 	String naam;
-	boolean slapen;
+	int beurtenInHerberg;
+	
 	
 	public boolean magVerder(){
-		return true;
-	}
-	
-	public void blijfStaan() {
-		
+		if(beurtenInHerberg<2) {
+			beurtenInHerberg ++;
+			return false;
+		}
+		else {
+			beurtenInHerberg = 0;
+			return true;
+		}
+			
 	}
 	
 	public boolean inHerberg() {
-		if (slapen) {
-			slapen = false;
-			return true;
-		}
-		else {
-			slapen = true;
+		if (beurtenInHerberg == 0) {
+			beurtenInHerberg ++;
 			return false;
 		}
+		else {
+			return true;
+		}
 	}
-	
+
 	public void sterf() {
 		plaats = 0;
 	}
@@ -36,7 +40,6 @@ public class Speler {
 	
 	public int gooien(){
 		int worp = random.nextInt(6)+1;
-		System.out.println(naam + " heeft " + worp + " gegooid!");
 		return worp;
 	}
 	

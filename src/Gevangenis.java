@@ -6,7 +6,7 @@ public class Gevangenis extends SpelVak {
 	}
 	
 	public void gevangen(Speler speler) {
-		speler.blijfStaan();
+		
 	}
 
 

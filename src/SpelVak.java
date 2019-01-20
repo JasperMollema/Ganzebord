@@ -10,13 +10,12 @@ public class SpelVak {
 		this.naam = naam;
 	}
 	
-	public int voerUit(Speler speler) {
+	public void gaUitVak(Speler speler) {
 		spelers.remove(speler);
-		int worp = speler.gooien();
-		return worp;
-	}
+		}
 	
-	public int specialeActie(Speler speler) {
+	public int specialeActie(Speler speler, int worp) {
+		System.out.println(naam + " heeft " + worp + " gegooid!");
 		return 0;
 	}
 	

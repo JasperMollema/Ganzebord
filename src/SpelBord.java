@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SpelBord {
-	SpelVak[] bord = new SpelVak[64];
+	SpelVak[] bord = new SpelVak[80];
 	List<Integer> bezetteVakjes = new ArrayList<>();
 	List<Speler> spelers = new ArrayList<>();
 	Map<Speler, Integer> spelerPlek = new HashMap<>();
@@ -25,9 +25,11 @@ public class SpelBord {
 	public void speelBeurt() {
 		SPEL_LOOP: while (true) {
 			for(Speler speler : spelers){
-				int vakje = spelerPlek.get(speler);				
-				int nieuwePlek = speler.gooien() + vakje;
-				nieuwePlek += bord[nieuwePlek].specialeActie(speler);
+				int vakje = spelerPlek.get(speler);	
+				bord[vakje].gaUitVak(speler);
+				int worp = 19;//speler.gooien();
+				int nieuwePlek = worp + vakje;
+				nieuwePlek += bord[vakje].specialeActie(speler, worp);
 				if(nieuwePlek == 63) {
 					bord[nieuwePlek].bezetVak(speler, nieuwePlek);
 					break SPEL_LOOP;
@@ -47,7 +49,7 @@ public class SpelBord {
 	}
 	
 	private void maakSpecialeVakjes() {
-//		bord [6 ] = new Brug ("Brug");
+		bord [6 ] = new Brug ("Brug");
 		bord [19] = new Herberg("Herberg");
 //		bord [31] = new Put("Put");
 //		bord [42] = new Doolhof("Doolhof");
@@ -57,7 +59,7 @@ public class SpelBord {
 	}
 	
 	private void maakNormaleVakjes() {
-		for(int i = 0; i<64; i++) {
+		for(int i = 0; i<80; i++) {
 			if(bord[i] == null) {
 				bord[i] = new SpelVak("Normaal");
 			}
