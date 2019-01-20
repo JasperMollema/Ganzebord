@@ -5,16 +5,18 @@ public class Brug extends SpelVak{
 		super(naam);
 	}
 
-//	@Override
-//	public int voerUit(Speler speler) {
-//		System.out.println(speler + " is op de brug belandt en gaat 6 stapjes vooruit");
-//		return 6;
-//	}
 	
 	@Override
 	public int specialeActie(Speler speler, int worp) {
-		System.out.println(speler + " is op de brug belandt en mag 6 plekjes voorruit");
+		return 0;
+	}
+	
+	@Override
+	public int bezetVak(Speler speler, int nieuwePlek) {
+		System.out.println(speler + " is op de brug beland en mag 6 plekjes "
+				+ "voorruit en staat nu op plek 12. Niets aan de hand!");
 		return 6;
 	}
+	
 	
 }

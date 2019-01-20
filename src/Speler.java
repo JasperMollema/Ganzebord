@@ -9,7 +9,7 @@ public class Speler {
 	
 	
 	public boolean magVerder(){
-		if(beurtenInHerberg<2) {
+		if(beurtenInHerberg<1) {
 			beurtenInHerberg ++;
 			return false;
 		}

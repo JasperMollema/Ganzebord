@@ -7,21 +7,16 @@ public class Herberg extends SpelVak{
 	
 	@Override
 	public int specialeActie (Speler speler, int worp) {
-		if(speler.inHerberg()) {
-			if(speler.magVerder()) {
+		if (speler.magVerder()) {
 				System.out.println(speler+ " mag weer uit de Herberg!");
 				spelers.remove(speler);
 				return 0;
-			}
-			else {
-				System.out.println(speler + " zit nog in de Herberg en moet deze beurt overslaan");
-				return -worp;
-			}
+			
 		}
 		else {
 			spelers.add(speler);
-			System.out.println(speler +" is in de Herberg belandt en moet een beurt overslaan!");
-			return 0;
+			
+			return -worp;
 		}
 	}
 	
@@ -31,8 +26,9 @@ public class Herberg extends SpelVak{
 	}
 
 	@Override
-	public void bezetVak(Speler speler, int vaknr) {
-		
+	public int bezetVak(Speler speler, int vaknr) {
+		System.out.println(speler +" is in de Herberg beland en moet een beurt overslaan!");
+		return 0;
 	}
 
 

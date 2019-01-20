@@ -27,9 +27,9 @@ public class SpelBord {
 			for(Speler speler : spelers){
 				int vakje = spelerPlek.get(speler);	
 				bord[vakje].gaUitVak(speler);
-				int worp = 19;//speler.gooien();
+				int worp = 58;//speler.gooien();
 				int nieuwePlek = worp + vakje;
-				nieuwePlek += bord[vakje].specialeActie(speler, worp);
+				nieuwePlek +=  bord[vakje].specialeActie(speler, worp);
 				if(nieuwePlek == 63) {
 					bord[nieuwePlek].bezetVak(speler, nieuwePlek);
 					break SPEL_LOOP;
@@ -37,8 +37,8 @@ public class SpelBord {
 				else if (nieuwePlek>63) {
 					nieuwePlek = 63 - (nieuwePlek -63);
 				}
+				nieuwePlek += bord[nieuwePlek].bezetVak(speler, nieuwePlek);
 				spelerPlek.put(speler, nieuwePlek);
-				bord[nieuwePlek].bezetVak(speler, nieuwePlek);
 			}
 		}
 		
@@ -51,10 +51,10 @@ public class SpelBord {
 	private void maakSpecialeVakjes() {
 		bord [6 ] = new Brug ("Brug");
 		bord [19] = new Herberg("Herberg");
-//		bord [31] = new Put("Put");
-//		bord [42] = new Doolhof("Doolhof");
-//		bord [52] = new Gevangenis("Gevangenis");
-//		bord [58] = new Dood("Dood");
+		bord [31] = new Put("Put");
+		bord [42] = new Doolhof("Doolhof");
+		bord [52] = new Gevangenis("Gevangenis");
+		bord [58] = new Dood("Dood");
 		bord [63] = new Einde("Einde!");			
 	}
 	

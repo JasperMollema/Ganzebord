@@ -14,19 +14,22 @@ public class SpelVak {
 		spelers.remove(speler);
 		}
 	
+	
+	
 	public int specialeActie(Speler speler, int worp) {
-		System.out.println(naam + " heeft " + worp + " gegooid!");
+		System.out.println(speler + " heeft " + worp + " gegooid!");
 		return 0;
 	}
 	
 	public void bezetVak(Speler speler) {
-		spelers.add(speler);
+		
 	}
 	
-	public void bezetVak(Speler speler, int vaknr) {
+	public int  bezetVak(Speler speler, int vaknr) {
 		spelers.add(speler);
 		//PRINT BOODSCHAP VAN "NIKS AAN DE HAND" JE STAAT OP NORMAAL VAK
 		System.out.println(speler + " staat op " + vaknr + ". Niets aan de hand!");
+		return 0;
 	}
 	
 	@Override
