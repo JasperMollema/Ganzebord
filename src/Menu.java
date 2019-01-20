@@ -2,38 +2,27 @@ import java.util.Scanner;
 
 public class Menu {
 	private Scanner reader = new Scanner(System.in);
-	private static int aantalSpelers;
-		
-	public void vraagAantalSpelers() {
-				System.out.println("Met hoeveel spelers wil je spelen?");
-				aantalSpelers = reader.nextInt();
-			}
-		
-	public void maakSpelers() {
-		splitArraySpelers(maakArraySpelers());
-	}
-	private String[] maakArraySpelers() {
-			String[] spelers = new String[aantalSpelers];
-			String name;
-			for(int i = 0; i<aantalSpelers; i++) {
-				System.out.println("Geef de naam van speler " + (i+1) + " :");
-				name = reader.nextLine();
-				spelers[i] = name;
-			}
-			return spelers;
-			
-		}
 	
-	private Speler maakSpeler(String name) {
-		
-		Speler speler = new Speler (name);
-		return speler;
+	public static void startMenu(int aantalSpelers) {
+		System.out.println("Met hoeveel spelers wil je Spelen?");
+		System.out.println("Je staat op start. Gooi je dobbelsteen (g):");
+		Spelers spelers = new Spelers ();
+		spelers.voegSpelersToe(aantalSpelers);
+		spelers.printSpelers();
 	}
+	
+	public void leesInvoer(int aantalSpelers) {
 		
-	private void splitArraySpelers(String[] spelers) {
-			for (String speler : spelers) {
-				maakSpeler(speler);
-			}
+		for(int i=0; i<aantalSpelers; i++) {
+			System.out.println("Type de naam van schaatser " + (i+1) + ":");
+			reader = new Scanner(System.in);
+			String naam= reader.nextLine();
+			voegSpelerToe(naam);
+		}
 	}
 
+	private void voegSpelerToe(String naam) {
+		// TODO Auto-generated method stub
+		
+	}
 }
