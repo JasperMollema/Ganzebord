@@ -9,6 +9,7 @@ public class Herberg extends SpelVak{
 	public int specialeActie (Speler speler, int worp) {
 		if (speler.magVerder()) {
 				System.out.println(speler+ " mag weer uit de Herberg!");
+				System.out.println(speler + " heeft " + worp + " gegooid.");
 				spelers.remove(speler);
 				return 0;
 			

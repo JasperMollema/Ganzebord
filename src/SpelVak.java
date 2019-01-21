@@ -3,8 +3,8 @@ import java.util.List;
 
 public class SpelVak {
 	public int aantalSpelers;
-	List <Speler> spelers = new ArrayList<>();
-	String naam;
+	protected List <Speler> spelers = new ArrayList<>();
+	private String naam;
 	
 	public SpelVak(String naam) {
 		this.naam = naam;
@@ -13,8 +13,6 @@ public class SpelVak {
 	public void gaUitVak(Speler speler) {
 		spelers.remove(speler);
 		}
-	
-	
 	
 	public int specialeActie(Speler speler, int worp) {
 		System.out.println(speler + " heeft " + worp + " gegooid!");
@@ -27,7 +25,6 @@ public class SpelVak {
 	
 	public int  bezetVak(Speler speler, int vaknr) {
 		spelers.add(speler);
-		//PRINT BOODSCHAP VAN "NIKS AAN DE HAND" JE STAAT OP NORMAAL VAK
 		System.out.println(speler + " staat op " + vaknr + ". Niets aan de hand!");
 		return 0;
 	}

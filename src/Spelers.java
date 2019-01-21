@@ -6,30 +6,25 @@ public class Spelers {
 private ArrayList<Speler> spelers = new ArrayList<>();
 private Scanner reader = new Scanner(System.in);
 
-
-public void voegSpelersToe(int aantal){
-	for(int i = 0; i < aantal; i++) {
-		String naam = reader.nextLine();
+public void voegSpelersToe(int aantalSpelers) {
+	System.out.println("Welkom bij Ganzenbord!");
+	for(int i=0; i<aantalSpelers; i++) {
+		System.out.println("Type de naam van speler " + (i+1) + ":");
+		reader = new Scanner(System.in);
+		String naam= reader.nextLine();
 		spelers.add(new Speler(naam));
 	}
 }
 
-public void zetSpelersOpBord(){
-	new SpelBord(spelers);
+public void startSpel(){
+	SpelBord bord = new SpelBord(spelers);
+	bord.maakBord();
+	bord.zetSpelersOpBord();
+	bord.speelSpel();
+	
 	}
 
-public void startSpel() {
-	for(Speler speler : spelers) {
-		speler.test();
-		System.out.println();
-	}
-}
 
-public void printSpelers(){
-	for(Speler speler: spelers) {
-		System.out.println(speler);
-	}
-}
 }
 
 
